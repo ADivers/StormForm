@@ -20,4 +20,5 @@ A component where any pictures taken at the event will be stored for future use.
     <li>Node</li>
     <li>MySQL or Mongo</li>
     <li>Sequelize or Mongoose</li>
+    <li>Firebase</li>
   </ul>
