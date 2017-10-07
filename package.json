@@ -1,0 +1,19 @@
+{
+  "name": "stormform",
+  "version": "1.0.0",
+  "description": "<h1>Event Planner</h1>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ADivers/StormForm.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ADivers/StormForm/issues"
+  },
+  "homepage": "https://github.com/ADivers/StormForm#readme"
+}
