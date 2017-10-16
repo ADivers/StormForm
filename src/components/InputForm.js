@@ -7,7 +7,8 @@ class InputForm extends React.Component {
             idea: "this is the idea txt", // need this to be required
             location: "this is the location txt",
             date: "this is the date txt",  // make this a calander picker or text or both? weekend of xx?
-            budget: "this is the budget txt"
+            budget: "this is the budget txt",
+            ideaPanel: [],
             
         }
     }
@@ -16,9 +17,24 @@ class InputForm extends React.Component {
     }
     addIdea(e){
         e.preventDefault();
-        console.log(this);
+        let idea = this.state.idea;
+        let location = this.state.location;
+        let date = this.state.date;
+        let budget = this.state.budget;
+        // let ideaPanel = [idea, location, date, budget];
+
+        this.setState({
+            ideaPanel: this.state.ideaPanel.concat({idea, location, date, budget})
+        })
+     
+        console.log(this.state.ideaPanel);
+        console.log(this.state);
+        console.log(this.state.idea);
+        console.log(this.state.location);
+        console.log(this.state.date);        
+        console.log(this.state.budget);
     }
-    render() {
+    render() { 
         return (
             <div>
                 <form onSubmit={this.addIdea.bind(this)}>
@@ -49,6 +65,7 @@ class InputForm extends React.Component {
                 <h1>{this.state.location}</h1>
                 <h1>{this.state.date}</h1>
                 <h1>{this.state.budget}</h1>
+                <h1>{this.state.ideaPanel}</h1>
             </div>
         )
     }
