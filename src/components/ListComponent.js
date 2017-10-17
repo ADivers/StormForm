@@ -1,15 +1,15 @@
-import React from 'react';
+// import React from 'react';
 
-class ListComponent extends React.Component {
+// const ListComponent = () => {
 
- 
-    
+//     return (
+//         <div>
+//             <p ></p>
+//             <p></p>
+//             <p></p>
+//             <p></p>
+//         </div>
+//     )
+// }
 
-
-
-
-
-
-
-    
-}
+// export default ListComponent;

@@ -4,7 +4,7 @@ class InputForm extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-                idea: "this is the idea txt", // need this to be required
+                idea: "",
                 location: "this is the location txt",
                 date: "this is the date txt",
                 budget: "this is the budget txt",
@@ -17,6 +17,10 @@ class InputForm extends React.Component {
     }
     addIdea(e){
         e.preventDefault();
+
+        if (this.state.idea === "") {
+            alert("Please include an idea before submitting");
+        } else {
 
         const {idea, location, date, budget, allInfo} = this.state;
 
@@ -34,6 +38,7 @@ class InputForm extends React.Component {
             allInfo: copy
         })
     }
+}
     render() { 
         console.log(this.state)
         return (
@@ -63,7 +68,7 @@ class InputForm extends React.Component {
                     </button>
                 </form>
 
-                {
+                {/* {
                     this.state.allInfo.map((i) => {
                         <ListComponent
                             name={i.name}
@@ -73,7 +78,7 @@ class InputForm extends React.Component {
                         />
                     })
 // map over array into ListComponent
-                } 
+                }  */}
                 <h1>{this.state.idea}</h1>
                 <h1>{this.state.location}</h1>
                 <h1>{this.state.date}</h1>
@@ -83,6 +88,5 @@ class InputForm extends React.Component {
         )
     }
 }
-
 
 export default InputForm;
