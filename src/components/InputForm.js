@@ -19,7 +19,7 @@ class InputForm extends React.Component {
         e.preventDefault();
 
         if (this.state.idea === "") {
-            alert("Please include an idea before submitting");
+            alert("Please include an idea before submitting.");
         } else {
 
         const {idea, location, date, budget, allInfo} = this.state;
