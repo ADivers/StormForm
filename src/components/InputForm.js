@@ -1,13 +1,14 @@
 import React from 'react';
+import ListComponent from "./ListComponent";
 
 class InputForm extends React.Component {
     constructor(props){
         super(props);
         this.state = {
                 idea: "",
-                location: "this is the location txt",
-                date: "this is the date txt",
-                budget: "this is the budget txt",
+                location: "",
+                date: "",
+                budget: "",
                 allInfo: [],
         }
         this.update = this.update.bind(this)
@@ -66,24 +67,7 @@ class InputForm extends React.Component {
                     />
                     <button type="submit">Submit Idea
                     </button>
-                </form>
-
-                {/* {
-                    this.state.allInfo.map((i) => {
-                        <ListComponent
-                            name={i.name}
-                            date={i.date}
-                            location={i.location}
-                            budget={i.location}
-                        />
-                    })
-// map over array into ListComponent
-                }  */}
-                <h1>{this.state.idea}</h1>
-                <h1>{this.state.location}</h1>
-                <h1>{this.state.date}</h1>
-                <h1>{this.state.budget}</h1>
-                <h1>{this.state.allInfo.length}</h1>
+                </form> 
             </div>
         )
     }

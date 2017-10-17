@@ -1,15 +1,15 @@
-// import React from 'react';
+import React from 'react';
 
-// const ListComponent = () => {
+const ListComponent = ({idea, location, date, budget}) => {
 
-//     return (
-//         <div>
-//             <p ></p>
-//             <p></p>
-//             <p></p>
-//             <p></p>
-//         </div>
-//     )
-// }
+    return (
+        <div>
+            <p>{idea}</p>
+            <p>{location}</p>
+            <p>{date}</p>
+            <p>{budget}</p>
+        </div>
+    )
+}
 
-// export default ListComponent;
+export default ListComponent;

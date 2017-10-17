@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import './index.css';
 // import App from './App';
-import InputForm from './components/InputForm';
+import RedditStylePanel from './container/redditStylePanel';
 // import registerServiceWorker from './registerServiceWorker';
 
 // ReactDOM.render(<App />, document.getElementById('root'));
 // registerServiceWorker();
 
-ReactDOM.render(<InputForm />, document.getElementById('root'));
+ReactDOM.render(<RedditStylePanel />, document.getElementById('root'));
 // registerServiceWorker();
