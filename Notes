@@ -1,0 +1,14 @@
+https://react-bootstrap.github.io/getting-started.html
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css">
+
+
+
+ES6 Support
+import Button from 'react-bootstrap/lib/Button';
+// or
+import { Button } from 'react-bootstrap';
