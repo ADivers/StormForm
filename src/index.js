@@ -5,8 +5,11 @@ import ReactDOM from 'react-dom';
 import InputForm from './components/InputForm';
 // import registerServiceWorker from './registerServiceWorker';
 
-// ReactDOM.render(<App />, document.getElementById('root'));
-// registerServiceWorker();
 
-ReactDOM.render(<InputForm />, document.getElementById('root'));
-// registerServiceWorker();
+import * as firebase from "firebase";
+
+ReactDOM.render(<App />, document.getElementById('root'));
+registerServiceWorker();
+
+// ReactDOM.render(<InputForm />, document.getElementById('root'));
+// // registerServiceWorker();
