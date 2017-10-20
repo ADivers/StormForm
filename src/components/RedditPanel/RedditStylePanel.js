@@ -1,6 +1,6 @@
 import React from 'react';
-import InputForm from "../components/InputForm";
-import ListComponent from "../components/ListComponent";
+import InputForm from "./InputForm";
+import ListComponent from "./ListComponent";
 
 class RedditStylePanel extends React.Component {
 

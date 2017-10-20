@@ -1,5 +1,4 @@
 import React from 'react';
-import ListComponent from "./ListComponent";
 
 class InputForm extends React.Component {
     constructor(props){
