@@ -1,15 +1,16 @@
 import React from 'react';
 
-const ListComponent = ({idea, location, date, budget}) => {
-
-    return (
+const ListComponent = (props) => {
         <div>
-            <p>{idea}</p>
-            <p>{location}</p>
-            <p>{date}</p>
-            <p>{budget}</p>
+            {props.allInfo.map(i =>
+               <ul key={i.idea}>    
+                    <li>{i.idea}</li>
+                    <li>{i.location}</li>
+                    <li>{i.date}</li>
+                    <li>{i.budget}</li>
+                </ul>
+            )}
         </div>
-    )
 }
 
 export default ListComponent;
