@@ -16,7 +16,6 @@ class RedditStylePanel extends React.Component {
     }
     update = (e) => {
         this.setState({[e.target.name]: e.target.value})
-        console.log(this.state)
     }
     addIdea = (e) => {
         e.preventDefault();
