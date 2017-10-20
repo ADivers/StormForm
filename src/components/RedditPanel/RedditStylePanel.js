@@ -16,7 +16,7 @@ class RedditStylePanel extends React.Component {
     }
     update = (e) => {
         this.setState({[e.target.name]: e.target.value})
-        console.log(this.state);
+        console.log(this.state)
     }
     addIdea = (e) => {
         e.preventDefault();
@@ -45,7 +45,7 @@ class RedditStylePanel extends React.Component {
 }
 
     render() {
-        return 
+        return (
             <div>
                 <InputForm 
                     idea={this.state.idea}
@@ -56,10 +56,21 @@ class RedditStylePanel extends React.Component {
                     update={this.update}
                     addIdea={this.addIdea}   
                 />
-                <ListComponent
-                    allInfo={this.state.allInfo}
-                />
+                {
+                    this.state.allInfo.map(i => {
+                        return <ListComponent
+                                    key={i.idea}
+                                    idea={i.idea}
+                                    location={i.location}
+                                    date={i.date}
+                                    budget={i.budget}
+                                    allInfo={i.allInfo}
+                            />
+                        }
+                    )
+                } 
             </div>    
+        )
     }
 }
 
