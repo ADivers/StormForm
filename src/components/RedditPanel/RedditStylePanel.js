@@ -7,9 +7,9 @@ class RedditStylePanel extends React.Component {
         super(props);
         this.state = {
                 idea: "",
-                location: "",
-                date: "",
-                budget: "",
+                location: "TBD",
+                date: "TBD",
+                budget: "TBD",
                 allInfo: [],
         }
         this.update = this.update.bind(this)

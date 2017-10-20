@@ -3,10 +3,10 @@ import React from 'react';
 const ListComponent = (props) => {
         return <div>
             <ul key={props.idea}>    
-                <li>{props.idea}</li>
-                <li>{props.location}</li>
-                <li>{props.date}</li>
-                <li>{props.budget}</li>
+                <li>Idea: {props.idea}</li>
+                <li>Location: {props.location}</li>
+                <li>Date: {props.date}</li>
+                <li>Budget: {props.budget}</li>
             </ul>
         </div>
 }
