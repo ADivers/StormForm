@@ -6,9 +6,6 @@ import config from './firebase-config';
 class Comments extends Component {
   constructor() {
     super();
-
-    // Initialize Firebase
-    firebase.initializeApp(config);
   }
 
   state = {
@@ -31,14 +28,19 @@ class Comments extends Component {
 
   render() {
     return (
-      <div className="App">
-        {this.props.children && React.cloneElement(this.props.children, {
-          // https://github.com/ReactTraining/react-router/blob/v3/examples/passing-props-to-children/app.js#L56-L58
-          firebase: firebase.database(),
-          posts: this.state.posts,
-          loading: this.state.loading
-        })}
-      </div>
+      <div>
+
+        hi
+        </div>
+      // <div className="App">
+      //   hey there
+      //   {this.props.children && React.cloneElement(this.props.children, {
+      //     // https://github.com/ReactTraining/react-router/blob/v3/examples/passing-props-to-children/app.js#L56-L58
+      //     firebase: firebase.database(),
+      //     posts: this.state.posts,
+      //     loading: this.state.loading
+      //   })}
+      // </div>
     );
   }
 }

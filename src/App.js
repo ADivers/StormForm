@@ -23,7 +23,7 @@ const App = () =>
         <Route exact path="/admin" component={admin} />
         <Route exact path="/login" component={login} />
         <Route exact path="/approval" component={approval} />
-       
+        <Route exact path="/AddPost" component={Comments} />
       </Switch>
     </div>
     
