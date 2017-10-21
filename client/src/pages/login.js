@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {Redirect} from "react-router-dom";
-import API from "../../utils/API";
-import {ErrorMSG} from '../msg';
+import API from "../utils/API";
+import {ErrorMSG} from '../components/msg';
 
 class Login extends Component {
   state = {

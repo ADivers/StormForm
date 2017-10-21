@@ -1,60 +1,58 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import logo from './logo.svg';
-import './App.css';
-import Home from "../src/components/pages/";
-import Login from "../src/components/pages/login";
-import Register from "../src/components/pages/register";
+import Home from "../src/pages/";
+import Login from "../src/pages/login";
+import Register from "../src/pages/register";
 import {Redirect} from "react-router-dom";
-import API from "./utils/API";
+// import API from "./utils/API";
 
-
+import brainStorm from "./pages/brainStorm";
+import taskTracker from "./pages/taskTracker";
+import admin from "./pages/admin";
+import approval from "./pages/approval";
+import Navi from "./components/Navi";
+import createEvent from "./pages/createEvent";
 class App extends Component {
-  state = {
-    logout: false
-  }
+  // state = {
+  //   logout: false
+  // }
 
-  logout = () => {
-    API.logout().then(res =>{
-      console.log(res)
+  // logout = () => {
+  //   API.logout().then(res =>{
+  //     console.log(res)
 
-      if(res.data.logout){
-        this.setState({logout: true})
-        console.log(this.state);
-      }
-    })
-    .catch(err => console.log(err));
-  }
+  //     if(res.data.logout){
+  //       this.setState({logout: true})
+  //       console.log(this.state);
+  //     }
+  //   })
+  //   .catch(err => console.log(err));
+  // }
 
   render() {
 
-    if(this.state.logout){
-      console.log("redirecting");
-      return (
-        <Redirect to={"/login"}/>
-      );
-    }
+    // if(this.state.logout){
+    //   console.log("redirecting");
+    //   return (
+    //     <Redirect to={"/login"}/>
+    //   );
+    // }
 
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <Router>
+      <div>
+      <Router>
+        <Navi />
           <Switch>
-            <a onClick={this.logout}>Logout</a>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={createEvent} />
+            <Route exact path="/brainStorm" component={brainStorm} />
+            <Route exact path="/taskTracker" component={taskTracker} />
+            <Route exact path="/admin" component={admin} />
+            <Route exact path="/approval" component={approval} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
           </Switch>
-        </Router>
+      </Router>
       </div>
-    );
+    )}
   }
-}
-
 export default App;

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {Redirect} from "react-router-dom";
-import API from "../../utils/API";
-import {Error} from '../msg';
+import API from "../utils/API";
+import {Error} from '../components/msg';
 
 class Register extends Component {
 
