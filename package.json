@@ -4,15 +4,16 @@
   "description": "<h1>Event Planner</h1>",
   "main": "index.js",
   "dependencies": {
-    "react": "^16.0.0",
-    "react-bootstrap": "^0.31.3",
-    "react-dom": "^16.0.0",
-    "react-scripts": "1.0.14",
     "axios": "^0.16.2",
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
+    "firebase": "^4.6.0",
     "mongoose": "^4.11.7",
-    "react-router-dom": "^4.1.2"
+    "react": "^16.0.0",
+    "react-bootstrap": "^0.31.3",
+    "react-dom": "^16.0.0",
+    "react-router-dom": "^4.1.2",
+    "react-scripts": "1.0.14"
   },
   "scripts": {
     "start": "react-scripts start",
