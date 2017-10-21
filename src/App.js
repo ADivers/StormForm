@@ -5,12 +5,12 @@ import brainStorm from "./pages/brainStorm";
 import taskTracker from "./pages/taskTracker";
 import admin from "./pages/admin";
 import approval from "./pages/approval";
-import Nav from "./components/Nav";
+import Navi from "./components/Navi";
 
 const App = () =>
   <Router>
     <div>
-    <Nav />
+    <Navi />
       <Switch>
         <Route exact path="/" component={brainStorm} />
         <Route exact path="/taskTracker" component={taskTracker} />
