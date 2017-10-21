@@ -19,7 +19,8 @@ import { Nav } from 'react-bootstrap';
         </Navbar.Brand>
       </Navbar.Header>
       <Nav>
-        <NavItem eventKey={1} href="/">Brain Storm</NavItem>
+        {/* <NavItem eventKey={1} href="/brainStorm">Brain Storm</NavItem> */}
+        <NavItem eventKey={2} href="/">Create Event</NavItem> 
         <NavItem eventKey={2} href="/taskTracker">Task Tracker</NavItem> 
         <NavItem eventKey={2} href="/approval">Approval</NavItem>      
         <NavItem eventKey={2} href="/admin">Admin</NavItem>    

@@ -6,13 +6,15 @@ import taskTracker from "./pages/taskTracker";
 import admin from "./pages/admin";
 import approval from "./pages/approval";
 import Navi from "./components/Navi";
+import createEvent from "./pages/createEvent";
 
 const App = () =>
   <Router>
     <div>
     <Navi />
       <Switch>
-        <Route exact path="/" component={brainStorm} />
+        <Route exact path="/" component={createEvent} />
+        <Route exact path="/create" component={brainStorm} />
         <Route exact path="/taskTracker" component={taskTracker} />
         <Route exact path="/admin" component={admin} />
         <Route exact path="/login" component={login} />
