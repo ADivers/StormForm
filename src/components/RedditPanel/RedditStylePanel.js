@@ -46,7 +46,6 @@ class RedditStylePanel extends React.Component {
     render() {
         return (
             <div>
-{/* loads input form */}
                 <InputForm 
                     idea={this.state.idea}
                     location={this.state.location}
@@ -56,12 +55,6 @@ class RedditStylePanel extends React.Component {
                     update={this.update}
                     addIdea={this.addIdea}   
                 />
-{/* loads previous ideas from db */}
-                <ListComponent 
-                
-                
-                />
-{/* write new idea on submit */}
                 {
                     this.state.allInfo.map(i => {
                         return <ListComponent
