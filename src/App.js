@@ -6,6 +6,12 @@ import taskTracker from "./pages/taskTracker";
 import admin from "./pages/admin";
 import approval from "./pages/approval";
 import Navi from "./components/Navi";
+import CommentAddPost from './components/CommentAddPost'
+import Comments from './components/Comments'
+import CommentPost from './components/CommentPost'
+
+
+
 
 const App = () =>
   <Router>
@@ -17,8 +23,10 @@ const App = () =>
         <Route exact path="/admin" component={admin} />
         <Route exact path="/login" component={login} />
         <Route exact path="/approval" component={approval} />
+       
       </Switch>
     </div>
+    
   </Router>;
 
 export default App;
