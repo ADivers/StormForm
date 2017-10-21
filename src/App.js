@@ -14,7 +14,7 @@ const App = () =>
     <Navi />
       <Switch>
         <Route exact path="/" component={createEvent} />
-        <Route exact path="/create" component={brainStorm} />
+        <Route exact path="/brainStorm" component={brainStorm} />
         <Route exact path="/taskTracker" component={taskTracker} />
         <Route exact path="/admin" component={admin} />
         <Route exact path="/login" component={login} />
