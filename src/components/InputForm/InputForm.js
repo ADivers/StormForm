@@ -1,13 +1,14 @@
 import React from 'react';
+import Posts from '../Posts';
 
 class InputForm extends React.Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
                 idea: "",
-                location: "",
-                date: "",
-                budget: "",
+                location: "TBD",
+                date: "TBD",
+                budget: "TBD",
                 allInfo: [],
         }
         this.update = this.update.bind(this)
@@ -39,6 +40,11 @@ class InputForm extends React.Component {
         })
     }
 }
+    saveToFirebase(){
+
+
+// function to save post to firebase
+    }
     render() { 
         console.log(this.state)
         return (
@@ -67,6 +73,17 @@ class InputForm extends React.Component {
                     <button type="submit">Submit Idea
                     </button>
                 </form> 
+                
+                {
+                    this.state.allInfo.map((i) => {
+                        return <Posts
+                            idea={i.idea}
+                            date={i.date}
+                            location={i.location}
+                            budget={i.budget}
+                          />
+                      })
+                  } 
             </div>
         )
     }
