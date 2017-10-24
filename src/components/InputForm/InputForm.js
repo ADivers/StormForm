@@ -39,12 +39,10 @@ class InputForm extends React.Component {
             allInfo: copy
         })
     }
+// save to firebase
+
 }
-    saveToFirebase(){
 
-
-// function to save post to firebase
-    }
     render() { 
         console.log(this.state)
         return (
