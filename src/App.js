@@ -5,11 +5,14 @@ import React from "react";
 // import taskTracker from "./pages/taskTracker";
 // import admin from "./pages/admin";
 // import approval from "./pages/approval";
-import RedditStylePanel from "./components/RedditPanel"
+// import RedditStylePanel from "./components/RedditPanel"
+// import AddPost from './components/InputForm/InputForm';
+import Posts from './components/Posts/Posts';
+
 
 const App = () =>
 
-    <RedditStylePanel />
+    <Posts />
 //  <Router>
 //       <Switch>
 //         <Route exact path="/" component={brainStorm} />

@@ -1,76 +1,42 @@
 import React from 'react';
-import InputForm from "./InputForm";
-import ListComponent from "./ListComponent";
+import * as firebase from "firebase";
+
+import config from './firebase-config';
 
 class RedditStylePanel extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-                idea: "",
-                location: "TBD",
-                date: "TBD",
-                budget: "TBD",
-                allInfo: [],
-        }
-        this.update = this.update.bind(this)
-    }
-    update = (e) => {
-        this.setState({[e.target.name]: e.target.value})
-    }
-    addIdea = (e) => {
-        e.preventDefault();
-        console.log("addIdea")
-        if (this.state.idea === "") {
-            alert("Please include an idea before submitting.");
-        } else {
+  constructor() {
+    super();
 
-        const {idea, location, date, budget, allInfo} = this.state;
+    // Initialize Firebase
+    firebase.initializeApp(config);
+  }
 
-        let ideaPanel = {
-            idea,
-            location,
-            date,
-            budget, 
-        };
+  state = {
+    posts: [],
+  };
 
-        const copy = allInfo.slice();
+  componentWillMount() {
+    let postsRef = firebase.database().ref('posts');
 
-        copy.push(ideaPanel);
-        this.setState({
-            allInfo: copy
-        })
-        console.log(copy)
-        }
-    }
+    let _this = this;
 
-    render() {
-        return (
-            <div>
-                <InputForm 
-                    idea={this.state.idea}
-                    location={this.state.location}
-                    date={this.state.date}
-                    budget={this.state.budget}
-                    allInfo={this.state.allInfo}
-                    update={this.update}
-                    addIdea={this.addIdea}   
-                />
-                {
-                    this.state.allInfo.map(i => {
-                        return <ListComponent
-                                    key={i.idea}
-                                    idea={i.idea}
-                                    location={i.location}
-                                    date={i.date}
-                                    budget={i.budget}
-                                    allInfo={i.allInfo}
-                            />
-                        }
-                    )
-                } 
-            </div>    
-        )
-    }
+    postsRef.on('value', function(snapshot) {
+      _this.setState({
+        posts: snapshot.val(),
+      });
+    });
+  }
+
+  render() {
+    return (
+      <RedditStylePanel>
+        {this.props.children && React.cloneElement(this.props.children, {
+          firebase: firebase.database(),
+          posts: this.state.posts,
+        })}
+      </RedditStylePanel>
+    );
+  }
 }
 
 export default RedditStylePanel;
