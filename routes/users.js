@@ -97,7 +97,7 @@ router.post('/login', function(req, res, next) {
 			if(!user)
 				res.send({message: info.message, isSuccessful: false});
 			else
-			res.send({isSuccessful: true});
+			res.send({name: user.name, username: user.username, email: user.email, isSuccessful: true});
 		})(req, res, next);
 	});
 

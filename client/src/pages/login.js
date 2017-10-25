@@ -7,9 +7,7 @@ class Login extends Component {
   state = {
     username: "",
     password: "",
-    error_msg: "",
-    isSuccessful: false,
-    redirect : false
+    error_msg: ""
   };
 
   handleInputChange = event => {
@@ -30,8 +28,10 @@ class Login extends Component {
         console.log(res)
 
         if(res.data.isSuccessful){
-          this.setState({username:'', password:'', error_msg: "", redirect: true})
+          this.setState({username:'', password:'', error_msg: ""})
           console.log(this.state);
+          localStorage.setItem('redirect','yes');
+          this.props.action(res.data);
         }
         else{
           this.setState({username:'', password:'', error_msg: res.data.message})
@@ -41,10 +41,12 @@ class Login extends Component {
   };
 
   render() {
-    if(this.state.redirect){
-      return (
-        <Redirect to={"/"}/>
-      );
+
+    console.log("rending login");
+
+    if(localStorage.getItem('redirect') === 'yes'){
+      localStorage.setItem('redirect','no');
+      return (<Redirect to='/home'/>);
     }
 
     return (
