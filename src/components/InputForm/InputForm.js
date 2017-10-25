@@ -12,8 +12,8 @@ class InputForm extends React.Component {
                 location: "TBD",
                 date: "TBD",
                 budget: "TBD",
-                allInfo: [],
                 upvotes: 0,
+                allInfo: [],
         }
         this.update = this.update.bind(this);
         this.addIdea = this.addIdea.bind(this);
@@ -21,30 +21,25 @@ class InputForm extends React.Component {
         this.app = firebase.initializeApp(config);
         this.db = this.app.database().ref().child('allInfo');
     }
-    componentWillMount(){
+    componentDidMount(){
+
+        const previousPosts = this.state.allInfo;
+
         const {idea, location, date, budget, allInfo, upvotes} = this.state;
-        
     // Data Snapshot
-        this.database.on('child_added', snap => {
-            allInfo.push({
+        this.db.on('child_added', snap => {
+            console.log(snap);
+            previousPosts.push({
                 id: snap.key,
                 idea: snap.val().idea,
+                location: snap.val().location,
+                date: snap.val().date,
+                budget: snap.val().budget,                
+                upvotes: snap.val().upvotes,                
             })
-        });
-
-        let ideaPanel = {
-            idea,
-            location,
-            date,
-            budget,
-            upvotes, 
-        };
-
-        const copy = allInfo.slice();
-
-        copy.push(ideaPanel);
-        this.setState({
-            allInfo: copy
+            this.setState({
+                allInfo: previousPosts
+            });    
         });
     }
     update(e){
@@ -56,15 +51,32 @@ class InputForm extends React.Component {
         // if (this.state.idea === "") {
         //     alert("Please include an idea before submitting.");
         // } else {
-            
-        this.database.push.set({ idea: idea })
+        
+    const {idea, location, date, budget, allInfo, upvotes} = this.state;
+    
+            let ideaPanel = {
+                idea,
+                location,
+                date,
+                budget, 
+                upvotes
+            };
+    
+            const copy = allInfo.slice();
+    
+            copy.push(ideaPanel);
+            this.setState({
+                allInfo: copy
+            })
+
+        this.db.push( this.state )
         
 
     // }
 }
 
     render(props) { 
-        console.log(this.state.allInfo)
+        // console.log(this.state.allInfo)
         return (
             <div>
                 <form onSubmit={this.addIdea}>
@@ -95,6 +107,7 @@ class InputForm extends React.Component {
                 {
                     this.state.allInfo.map((i) => {
                         return <Posts
+                            key={i.key}
                             idea={i.idea}
                             date={i.date}
                             location={i.location}

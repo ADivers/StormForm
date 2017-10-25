@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import './index.css';
 // import App from './App';
-import AddPost from './components/InputForm/InputForm';
-import Posts from './components/Posts/Posts';
+import InputForm from './components/InputForm/InputForm';
+// import Posts from './components/Posts/Posts';
 // import RedditStylePanel from './components/RedditPanel/RedditStylePanel';
 // import registerServiceWorker from './registerServiceWorker';
 
@@ -11,7 +11,7 @@ import Posts from './components/Posts/Posts';
 // ReactDOM.render(<RedditStylePanel />, document.getElementById('root'));
 // registerServiceWorker();
 
-ReactDOM.render(<Posts />, document.getElementById('root'));
+ReactDOM.render(<InputForm />, document.getElementById('root'));
 // registerServiceWorker();
 
 // ReactDOM.render(<App />, document.getElementById('root'));

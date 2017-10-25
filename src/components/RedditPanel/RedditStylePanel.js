@@ -1,7 +1,7 @@
 import React from 'react';
-import * as firebase from "firebase";
+// import * as firebase from "firebase";
 
-import config from './firebase-config';
+// import config from './firebase-config';
 
 class RedditStylePanel extends React.Component {
   constructor() {
