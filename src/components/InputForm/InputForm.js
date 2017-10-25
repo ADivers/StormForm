@@ -72,7 +72,7 @@ class InputForm extends React.Component {
                     <button type="submit">Submit Idea
                     </button>
                 </form> 
-                
+                                
                 {
                     this.state.allInfo.map((i) => {
                         return <Posts
