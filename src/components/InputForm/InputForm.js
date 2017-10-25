@@ -8,12 +8,12 @@ class InputForm extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-                idea: "",
-                location: "TBD",
-                date: "TBD",
-                budget: "TBD",
-                upvotes: 0,
-                allInfo: [],
+            idea: "",
+            location: "TBD",
+            date: "TBD",
+            budget: "TBD",
+            upvotes: 0,
+            allInfo: [],
         }
         this.update = this.update.bind(this);
         this.addIdea = this.addIdea.bind(this);
@@ -47,10 +47,6 @@ class InputForm extends React.Component {
     }
     addIdea(e){
         e.preventDefault();
-
-        // if (this.state.idea === "") {
-        //     alert("Please include an idea before submitting.");
-        // } else {
         
     const {idea, location, date, budget, allInfo, upvotes} = this.state;
     
@@ -70,15 +66,12 @@ class InputForm extends React.Component {
             })
 
         this.db.push( this.state )
-        
 
-    // }
 }
 
     render(props) { 
-        // console.log(this.state.allInfo)
         return (
-            <div>
+            <div className="InputForm">
                 <form onSubmit={this.addIdea}>
                     <input name="idea" 
                     placeholder="Idea Name" 
