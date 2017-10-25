@@ -1,5 +1,8 @@
 import React from 'react';
 import Posts from '../Posts/Posts';
+import * as firebase from "firebase";
+
+import config from './firebase-config';
 
 class InputForm extends React.Component {
     constructor(props){
@@ -12,19 +15,22 @@ class InputForm extends React.Component {
                 allInfo: [],
                 upvotes: 0,
         }
-        this.update = this.update.bind(this)
-    }
-    update(e){
-        this.setState({[e.target.name]: e.target.value})
-    }
-    addIdea(e){
-        e.preventDefault();
+        this.update = this.update.bind(this);
+        this.addIdea = this.addIdea.bind(this);
 
-        if (this.state.idea === "") {
-            alert("Please include an idea before submitting.");
-        } else {
-
+        this.app = firebase.initializeApp(config);
+        this.db = this.app.database().ref().child('allInfo');
+    }
+    componentWillMount(){
         const {idea, location, date, budget, allInfo, upvotes} = this.state;
+        
+    // Data Snapshot
+        this.database.on('child_added', snap => {
+            allInfo.push({
+                id: snap.key,
+                idea: snap.val().idea,
+            })
+        });
 
         let ideaPanel = {
             idea,
@@ -40,15 +46,28 @@ class InputForm extends React.Component {
         this.setState({
             allInfo: copy
         });
-
     }
+    update(e){
+        this.setState({[e.target.name]: e.target.value})
+    }
+    addIdea(e){
+        e.preventDefault();
+
+        // if (this.state.idea === "") {
+        //     alert("Please include an idea before submitting.");
+        // } else {
+            
+        this.database.push.set({ idea: idea })
+        
+
+    // }
 }
 
     render(props) { 
-        console.log(this.state)
+        console.log(this.state.allInfo)
         return (
             <div>
-                <form onSubmit={this.addIdea.bind(this)}>
+                <form onSubmit={this.addIdea}>
                     <input name="idea" 
                     placeholder="Idea Name" 
                     type="text"
@@ -72,7 +91,7 @@ class InputForm extends React.Component {
                     <button type="submit">Submit Idea
                     </button>
                 </form> 
-                                
+
                 {
                     this.state.allInfo.map((i) => {
                         return <Posts
