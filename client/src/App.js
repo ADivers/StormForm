@@ -38,6 +38,7 @@ class App extends Component {
     if(user){
       this.setState({isLoggedIn: true, appUser: user, redirect: true});
       localStorage.setItem('token', user);
+      this.forceUpdate();
     }
       
     console.log(this.state);
