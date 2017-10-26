@@ -12,7 +12,7 @@ import approval from "./pages/approval";
 import Navi from "./components/Navi";
 import createEvent from "./pages/createEvent";
 import appUser from "./components/appUser";
-import InputForm from "./components/appUser";
+import InputForm from "./components/InputForm";
 
 class App extends Component {
   state = {
