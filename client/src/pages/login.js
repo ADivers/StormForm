@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Redirect} from "react-router-dom";
+import {Redirect, hashHistory, Link} from "react-router-dom";
 import API from "../utils/API";
 import {ErrorMSG} from '../components/msg';
 
@@ -65,6 +65,7 @@ class Login extends Component {
                 <input type="password" className="form-control" name="password" placeholder="Password" value={this.state.password} onChange={this.handleInputChange} />
               </div>
               <button type="submit" className="btn btn-default" onClick={this.handleFormSubmit}>Submit</button>
+              <Link className="btn btn-info" role="button" to="/register" > Register </Link>
             </form>
           </div>
         </div>
