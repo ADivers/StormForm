@@ -14,7 +14,7 @@ import createEvent from "./pages/createEvent";
 import appUser from "./components/appUser";
 import InputForm from "./components/InputForm/InputForm.js";
 
-class App extends Component {
+class App extends Component { 
   state = {
     appUser: {},
     isLoggedIn: false,
