@@ -13,7 +13,7 @@ import Navi from "./components/Navi";
 import createEvent from "./pages/createEvent";
 import appUser from "./components/appUser";
 import InputForm from "./components/InputForm/InputForm.js";
-
+import CommentForm from "./components/CommentForm/CommentForm.js";
 class App extends Component { 
   state = {
     appUser: {},
@@ -66,6 +66,7 @@ class App extends Component {
               <Route  exact path="/taskTracker" component={taskTracker} />
               <Route  exact path="/admin" component={admin} />
               <Route  exact path="/approval" component={approval} />
+              <Route  exact path="/comment" component={CommentForm} />
               <Route  exact path="/login"
                 component={() => <Login action={this.setLoginUser} />}
               />
