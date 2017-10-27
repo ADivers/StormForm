@@ -10,7 +10,7 @@ class Posts extends React.Component {
       <div>
           <ul key={this.props.idea}>    
               <li>Idea: {this.props.idea}</li>
-              <button><a href="/comment">Brainstorm!</a></button>
+              <button><a href="/brainstorm">Brainstorm!</a></button>
           </ul>
       </div>
     )

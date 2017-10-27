@@ -30,8 +30,8 @@ class Navi extends Component{
         </Navbar.Brand>
       </Navbar.Header>
       <Nav className = "Nav-Bar">
+      <NavItem eventKey={1} href="/">Create Event</NavItem> 
         <NavItem eventKey={1} href="/brainStorm">Brain Storm</NavItem> 
-        <NavItem eventKey={1} href="/">Create Event</NavItem> 
         <NavItem eventKey={2} href="/taskTracker">Task Tracker</NavItem> 
         <NavItem eventKey={3} href="/approval">Approval</NavItem>      
         <NavItem eventKey={4} href="/admin">Admin</NavItem>    

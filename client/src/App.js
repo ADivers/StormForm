@@ -64,12 +64,11 @@ class App extends Component {
                 )
                 )
               } } />
-              <Route  exact path="/home" component={createEvent} />
-              <Route  exact path="/brainStorm" component={InputForm} />
+              <Route  exact path="/home" component={InputForm} />
+              <Route  exact path="/brainStorm" component={Comments} />
               <Route  exact path="/taskTracker" component={taskTracker} />
               <Route  exact path="/admin" component={admin} />
               <Route  exact path="/approval" component={approval} />
-              <Route  exact path="/comment" component={Comments} />
               <Route  exact path="/login"
                 component={() => <Login action={this.setLoginUser} />}
               />
