@@ -12,6 +12,7 @@ class Comments extends React.Component {
         author: "",
         date: "",
         text: "",
+        location: "",
         upvotes: 0,
         commentsInfo: [],
     }
@@ -41,6 +42,7 @@ class Comments extends React.Component {
                     commentsInfo: prevComments,
                     upvotes: this.state.upvotes,
                     author: this.state.author,
+                    // location: this.state.location
                     date: this.state.date,
                     text: this.state.text,
                 });
@@ -82,6 +84,7 @@ class Comments extends React.Component {
                     comment={i}
                     author={this.state.author}
                     date={this.state.date}
+                    location={this.state.location}
                     text={this.state.text}
                     onUpvote={this.upVote}
                 />

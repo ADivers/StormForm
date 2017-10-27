@@ -62,7 +62,11 @@ class CommentForm extends React.Component {
                     type="text"
                     onChange={this.update}
                     />
-
+                    <input name="location" 
+                    placeholder="Location" 
+                    type="text"
+                    onChange={this.update}
+                    />
                     <input name="text" 
                     placeholder="Comment" 
                     type="text"
