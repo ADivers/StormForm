@@ -1,7 +1,7 @@
 import React from 'react';
 import Posts from '../Posts/Posts';
-import * as firebase from "firebase";
-
+import firebase from 'firebase'
+import { Form, FormControl, FormGroup, Button, Panel } from 'react-bootstrap';
 import config from './firebase-config';
 
 class InputForm extends React.Component {
@@ -65,50 +65,50 @@ class InputForm extends React.Component {
                 allInfo: copy
             })
 
-        this.db.push( this.state )
-
+        this.db.push({idea: this.state.idea})
 }
+
 
     render(props) { 
         return (
-            <div className="InputForm">
-                <form onSubmit={this.addIdea}>
-                    <input name="idea" 
-                    placeholder="Idea Name" 
-                    type="text"
-                    onChange={this.update}
-                    />
-                    <input name="location" 
-                    placeholder="Location(optional)" 
-                    type="text"
-                    onChange={this.update}
-                    />
-                    <input name="date" 
-                    placeholder="Date(s)(optional)" 
-                    type="text"
-                    onChange={this.update}
-                    />
-                    <input name="budget" 
-                    placeholder="Budget(optional)" 
-                    type="text"
-                    onChange={this.update}
-                    />
-                    <button type="submit">Submit Idea
-                    </button>
-                </form> 
-
-                {
-                    this.state.allInfo.map((i) => {
-                        return <Posts
-                            key={i.key}
-                            idea={i.idea}
-                            date={i.date}
-                            location={i.location}
-                            budget={i.budget}
-                            upvotes={i.upvotes}
-                          />
-                      })
-                  } 
+            <div>
+                <Form inline className="InputForm">
+                    <form onSubmit={this.addIdea}>
+                        <FormControl name="idea" 
+                        placeholder="Idea Name" 
+                        type="text"
+                        onChange={this.update}
+                        />
+                        {/* dont need below code. Only need the idea for InputForm */}
+                        {/* <FormControl name="location" 
+                        placeholder="Location(optional)" 
+                        type="text"
+                        onChange={this.update}
+                        />
+                        <FormControl name="date" 
+                        placeholder="Date(s)(optional)" 
+                        type="text"
+                        onChange={this.update}
+                        />
+                        <FormGroup controlId="formControlsTextarea">
+                        <FormControl name="budget" 
+                        placeholder="Budget(optional)" 
+                        type="text"
+                        onChange={this.update}
+                        /> */}
+                        {/* </FormGroup> */}
+                        <Button type="submit">Submit Idea
+                        </Button>
+                    </form>                    
+                </Form>
+                    {
+                        this.state.allInfo.map((i) => {
+                            return <Posts
+                                key={i.key}
+                                idea={i.idea}
+                            />
+                        })
+                    } 
             </div>
         )
     }

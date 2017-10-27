@@ -1,4 +1,5 @@
 import React from 'react';
+import { Form, FormControl, FormGroup, Button, Panel, ListGroup, ListGroupItem } from 'react-bootstrap';
 
 class Posts extends React.Component {
   constructor(props){
@@ -7,15 +8,12 @@ class Posts extends React.Component {
 
   render (props) {
     return (
-      <div>
-          <ul key={this.props.idea}>    
-              <li>Idea: {this.props.idea}</li>
-              <li>Location: {this.props.location}</li>
-              <li>Date: {this.props.date}</li>
-              <li>Budget: {this.props.budget}</li>
-              <li>Upvotes: {this.props.upvotes}</li>
-          </ul>
-      </div>
+          <Panel bsStyle="success"> 
+            <ListGroup key={this.props.idea}>    
+              <ListGroupItem>Idea: {this.props.idea}</ListGroupItem>
+                <ListGroupItem><button><a href="/brainstorm">Brainstorm!</a></button></ListGroupItem>
+            </ListGroup>
+          </Panel>
     )
 }
 

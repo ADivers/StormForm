@@ -13,6 +13,9 @@ import Navi from "./components/Navi";
 import createEvent from "./pages/createEvent";
 import appUser from "./components/appUser";
 import InputForm from "./components/InputForm/InputForm.js";
+// import CommentForm from "./components/CommentForm/CommentForm.js";
+import Comments from "./components/Comments/Comments.js";
+
 
 class App extends Component { 
   state = {
@@ -61,8 +64,8 @@ class App extends Component {
                 )
                 )
               } } />
-              <Route  exact path="/home" component={createEvent} />
-              <Route  exact path="/brainStorm" component={InputForm} />
+              <Route  exact path="/home" component={InputForm} />
+              <Route  exact path="/brainStorm" component={Comments} />
               <Route  exact path="/taskTracker" component={taskTracker} />
               <Route  exact path="/admin" component={admin} />
               <Route  exact path="/approval" component={approval} />
