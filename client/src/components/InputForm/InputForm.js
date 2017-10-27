@@ -78,11 +78,8 @@ class InputForm extends React.Component {
                     type="text"
                     onChange={this.update}
                     />
-<<<<<<< HEAD
-                    {/* <input name="location" 
-=======
-                    <FormControl name="location" 
->>>>>>> a636e16cfd58dbd322b05791e3f589082e50f6bd
+                    {/* dont need below code. Only need the idea for InputForm */}
+                    {/* <FormControl name="location" 
                     placeholder="Location(optional)" 
                     type="text"
                     onChange={this.update}
@@ -97,16 +94,10 @@ class InputForm extends React.Component {
                     placeholder="Budget(optional)" 
                     type="text"
                     onChange={this.update}
-<<<<<<< HEAD
                     /> */}
-                    <button type="submit">Submit Idea
-                    </button>
-=======
-                    />
-                    </FormGroup>
+                    {/* </FormGroup> */}
                     <Button type="submit">Submit Idea
                     </Button>
->>>>>>> a636e16cfd58dbd322b05791e3f589082e50f6bd
                 </form> 
 
                 {
@@ -114,7 +105,6 @@ class InputForm extends React.Component {
                         return <Posts
                             key={i.key}
                             idea={i.idea}
-
                           />
                       })
                   } 
