@@ -58,7 +58,7 @@ class CommentForm extends React.Component {
                     />
                 
                     <input name="date" 
-                    placeholder="Date(s)(optional)" 
+                    placeholder="Date" 
                     type="text"
                     onChange={this.update}
                     />

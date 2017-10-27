@@ -10,7 +10,7 @@ class Comment extends React.Component {
       <div>
           <ul key={this.props.comment.idea}>    
               <li>Author: {this.props.comment.author}</li>
-              <li>Dates: {this.props.comment.date}</li>
+              <li>Date: {this.props.comment.date}</li>
               <li>Location: {this.props.comment.location}</li>
               <li>Text: {this.props.comment.text}</li>
               <button onClick={(e) => {
