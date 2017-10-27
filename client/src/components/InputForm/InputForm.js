@@ -1,7 +1,7 @@
 import React from 'react';
 import Posts from '../Posts/Posts';
-import * as firebase from "firebase";
-
+import firebase from 'firebase'
+import { Form, FormControl, FormGroup, Button } from 'react-bootstrap';
 import config from './firebase-config';
 
 class InputForm extends React.Component {
@@ -71,30 +71,32 @@ class InputForm extends React.Component {
 
     render(props) { 
         return (
-            <div className="InputForm">
+            <Form inline className="InputForm">
                 <form onSubmit={this.addIdea}>
-                    <input name="idea" 
+                    <FormControl name="idea" 
                     placeholder="Idea Name" 
                     type="text"
                     onChange={this.update}
                     />
-                    <input name="location" 
+                    <FormControl name="location" 
                     placeholder="Location(optional)" 
                     type="text"
                     onChange={this.update}
                     />
-                    <input name="date" 
+                    <FormControl name="date" 
                     placeholder="Date(s)(optional)" 
                     type="text"
                     onChange={this.update}
                     />
-                    <input name="budget" 
+                    <FormGroup controlId="formControlsTextarea">
+                    <FormControl name="budget" 
                     placeholder="Budget(optional)" 
                     type="text"
                     onChange={this.update}
                     />
-                    <button type="submit">Submit Idea
-                    </button>
+                    </FormGroup>
+                    <Button type="submit">Submit Idea
+                    </Button>
                 </form> 
 
                 {
@@ -109,7 +111,7 @@ class InputForm extends React.Component {
                           />
                       })
                   } 
-            </div>
+            </Form>
         )
     }
 }
