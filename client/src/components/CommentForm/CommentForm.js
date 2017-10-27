@@ -1,6 +1,7 @@
 import React from 'react';
 import Comment from '../Comment/Comment';
 import Comments from '../Comments/Comments.js';
+import { Form, FormControl, FormGroup, Button } from 'react-bootstrap';
 import * as firebase from "firebase";
 
 import config from '../Comments/firebaseConfig';
@@ -49,37 +50,37 @@ class CommentForm extends React.Component {
 
     render(props) { 
         return (
-            <div className="InputForm">
+            <Form inline className="InputForm">
                 <form onSubmit={this.addIdea}>
-                    <input name="author" 
+                    <FormControl name="author" 
                     placeholder="Author Name" 
                     type="text"
                     onChange={this.update}
                     />
                 
-                    <input name="date" 
+                    <FormControl name="date" 
                     placeholder="Date" 
                     type="text"
                     onChange={this.update}
                     />
-                    <input name="location" 
+                    <FormControl name="location" 
                     placeholder="Location" 
                     type="text"
                     onChange={this.update}
                     />
-                    <input name="text" 
+                    <FormControl name="text" 
                     placeholder="Comment" 
                     type="text"
                     onChange={this.update}
                     />
-                    <button type="submit" onClick={(e) => {
+                    <Button type="submit" onClick={(e) => {
                         e.stopPropagation();
 
                         this.props.onFormSubmit(this.state);
                     }}>Submit Idea
-                    </button>
+                    </Button>
                 </form> 
-         </div>
+         </Form>
      )
     
 }
