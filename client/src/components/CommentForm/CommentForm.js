@@ -8,10 +8,9 @@ class CommentForm extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            idea: "",
-            location: "TBD",
+            author: "",
             date: "TBD",
-            budget: "TBD",
+            text: "",
             upvotes: 0,
             allInfo: [],
         }
@@ -25,16 +24,15 @@ class CommentForm extends React.Component {
 
         const previousPosts = this.state.allInfo;
 
-        const {idea, location, date, budget, allInfo, upvotes} = this.state;
+        const { author, date, text, allInfo, upvotes} = this.state;
     // Data Snapshot
         this.db.on('child_added', snap => {
             console.log(snap);
             previousPosts.push({
                 id: snap.key,
-                idea: snap.val().idea,
-                location: snap.val().location,
+                auhor: snap.val().author,
                 date: snap.val().date,
-                budget: snap.val().budget,                
+                text: snap.val().text,               
                 upvotes: snap.val().upvotes,                
             })
             this.setState({
@@ -48,13 +46,12 @@ class CommentForm extends React.Component {
     addIdea(e){
         e.preventDefault();
         
-    const {idea, location, date, budget, allInfo, upvotes} = this.state;
+    const {author, date, text, allInfo, upvotes} = this.state;
     
             let ideaPanel = {
-                idea,
-                location,
+                author,
                 date,
-                budget, 
+                text,
                 upvotes
             };
     
@@ -74,26 +71,22 @@ class CommentForm extends React.Component {
             <div className="InputForm">
                 <form onSubmit={this.addIdea}>
                     <input name="idea" 
-                    placeholder="Idea Name" 
+                    placeholder="Author Name" 
                     type="text"
                     onChange={this.update}
                     />
-                    <input name="location" 
-                    placeholder="Location(optional)" 
-                    type="text"
-                    onChange={this.update}
-                    />
+                
                     <input name="date" 
                     placeholder="Date(s)(optional)" 
                     type="text"
                     onChange={this.update}
                     />
-                    <input name="budget" 
-                    placeholder="Budget(optional)" 
+
+                    <input name="text" 
+                    placeholder="Comment" 
                     type="text"
                     onChange={this.update}
                     />
-                    
                     <button type="submit">Submit Idea
                     </button>
                 </form> 
@@ -102,11 +95,12 @@ class CommentForm extends React.Component {
                     this.state.allInfo.map((i) => {
                         return <Comment
                             key={i.key}
-                            idea={i.idea}
+                            fireid={i.id}
+                            author={i.author}
                             date={i.date}
-                            location={i.location}
-                            budget={i.budget}
+                            text={i.text}
                             upvotes={i.upvotes}
+                            db={this.app}
                           />
                       })
                   } 
