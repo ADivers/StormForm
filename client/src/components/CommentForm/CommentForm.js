@@ -1,5 +1,6 @@
 import React from 'react';
 import Comment from '../Comment/Comment';
+import Comments from '../Comments/Comments.js';
 import * as firebase from "firebase";
 
 import config from './firebaseConfig';
@@ -27,7 +28,7 @@ class CommentForm extends React.Component {
         const { author, date, text, allInfo, upvotes} = this.state;
     // Data Snapshot
         this.db.on('child_added', snap => {
-            console.log(snap);
+            console.log(snap.key);
             previousPosts.push({
                 id: snap.key,
                 auhor: snap.val().author,
@@ -93,20 +94,23 @@ class CommentForm extends React.Component {
 
                 {
                     this.state.allInfo.map((i) => {
-                        return <Comment
-                            key={i.key}
-                            fireid={i.id}
-                            author={i.author}
-                            date={i.date}
-                            text={i.text}
-                            upvotes={i.upvotes}
+                        return <Comments
+                             key={i.key}
+                             fireid={i.id}
+                             author={i.author}
+                             date={i.date}
+                             text={i.text}
+                             upvotes={i.upvotes}
                             db={this.app}
                           />
                       })
-                  } 
-            </div>
-        )
-    }
+                    }
+         </div>
+     )
+    
 }
+
+}
+
 
 export default CommentForm;
