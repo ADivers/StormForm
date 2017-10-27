@@ -10,36 +10,19 @@ class CommentForm extends React.Component {
         super(props);
         this.state = {
             author: "",
-            date: "TBD",
+            date: "",
             text: "",
             upvotes: 0,
             allInfo: [],
         }
         this.update = this.update.bind(this);
         this.addIdea = this.addIdea.bind(this);
-
-        this.app = firebase.initializeApp(config);
-        this.db = this.app.database().ref().child('allInfo');
     }
     componentDidMount(){
 
         const previousPosts = this.state.allInfo;
 
         const { author, date, text, allInfo, upvotes} = this.state;
-    // Data Snapshot
-        this.db.on('child_added', snap => {
-            console.log(snap.key);
-            previousPosts.push({
-                id: snap.key,
-                auhor: snap.val().author,
-                date: snap.val().date,
-                text: snap.val().text,               
-                upvotes: snap.val().upvotes,                
-            })
-            this.setState({
-                allInfo: previousPosts
-            });    
-        });
     }
     update(e){
         this.setState({[e.target.name]: e.target.value})
@@ -62,16 +45,13 @@ class CommentForm extends React.Component {
             this.setState({
                 allInfo: copy
             })
-
-        this.db.push( this.state )
-
-}
+    }
 
     render(props) { 
         return (
             <div className="InputForm">
                 <form onSubmit={this.addIdea}>
-                    <input name="idea" 
+                    <input name="author" 
                     placeholder="Author Name" 
                     type="text"
                     onChange={this.update}
@@ -88,23 +68,13 @@ class CommentForm extends React.Component {
                     type="text"
                     onChange={this.update}
                     />
-                    <button type="submit">Submit Idea
+                    <button type="submit" onClick={(e) => {
+                        e.stopPropagation();
+
+                        this.props.onFormSubmit(this.state);
+                    }}>Submit Idea
                     </button>
                 </form> 
-
-                {/* {
-                    this.state.allInfo.map((i) => {
-                        return <Comments
-                             key={i.key}
-                             fireid={i.id}
-                             author={i.author}
-                             date={i.date}
-                             text={i.text}
-                             upvotes={i.upvotes}
-                            db={this.app}
-                          />
-                      })
-                    } */}
          </div>
      )
     

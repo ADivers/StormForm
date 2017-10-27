@@ -9,9 +9,9 @@ class Comments extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-        author: "Michael",
-        date: "TBD",
-        text: "Comment",
+        author: "",
+        date: "",
+        text: "",
         upvotes: 0,
         commentsInfo: [],
     }
@@ -37,24 +37,19 @@ class Comments extends React.Component {
                     }
                 }).sort((a, b) => a.upvotes < b.upvotes)
 
-                // .push({
-                //     id: snap.key,
-                //     author: snap.val().author,
-                //     date: snap.val().date,
-                //     text: snap.val().text,
-                //     upvotes: snap.val().upvotes,
-                //     commentsInfo: snap.val().commentsInfo         
-                // }) 
-
                 this.setState({
                     commentsInfo: prevComments,
-                    upvotes: this.state.upvotes
+                    upvotes: this.state.upvotes,
+                    author: this.state.author,
+                    date: this.state.date,
+                    text: this.state.text,
                 });
             });
         }
         
   upVote = (e, id, newVal) => {
     e.preventDefault();
+    console.log(this.state);
 
     this.lol.ref(`commentsInfo/${id}`).update({
         upvotes: newVal
@@ -70,7 +65,6 @@ class Comments extends React.Component {
     newCommentsArray[indexToUpdate] = commentToUpdate;
 
     this.setState({
-        // commentsInfo: newCommentsArray.sort((a, b) => a.upvotes < b.upvotes)
         commentsInfo: newCommentsArray.sort((a, b) => a.upvotes < b.upvotes)
     });
     
@@ -79,11 +73,16 @@ class Comments extends React.Component {
   render(props) {
       return (
         <div>
-            {/* <CommentForm /> */}
+            <CommentForm onFormSubmit={(newComment) => {
+                this.db.push(newComment);
+            }}/>
             {this.state.commentsInfo.map((i) => {
                 return <Comment 
                     key={this.state.id}
                     comment={i}
+                    author={this.state.author}
+                    date={this.state.date}
+                    text={this.state.text}
                     onUpvote={this.upVote}
                 />
             })}

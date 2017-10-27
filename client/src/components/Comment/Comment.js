@@ -9,9 +9,9 @@ class Comment extends React.Component {
     return (
       <div>
           <ul key={this.props.comment.idea}>    
-              <li>author: {this.props.comment.author}</li>
+              <li>Author: {this.props.comment.author}</li>
               <li>Date: {this.props.comment.date}</li>
-              <li>text: {this.props.comment.text}</li>
+              <li>Text: {this.props.comment.text}</li>
               <button onClick={(e) => {
                 this.props.onUpvote(e, this.props.comment.id, this.props.comment.upvotes + 1)
               }}>
