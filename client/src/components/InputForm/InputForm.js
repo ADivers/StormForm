@@ -65,7 +65,7 @@ class InputForm extends React.Component {
                 allInfo: copy
             })
 
-        this.db.push( this.state )
+        this.db.push({idea: this.state.idea})
 }
 
 
