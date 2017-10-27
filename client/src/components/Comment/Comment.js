@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 class Comment extends React.Component {
@@ -6,24 +5,18 @@ class Comment extends React.Component {
     super(props);
   };
 
-  upVote = () => {
-    console.log(this.props.id);
-    this.props.db.database().ref('allInfo').orderByKey().endAt(this.props.fireid.toString()).on("child_added", function(snapshot){
-      console.log(snapshot)
-
-     
-    });
-    
-  }
-
-  render (props) {
+  render () {
     return (
       <div>
-          <ul key={this.props.idea}>    
-              <li>author: {this.props.author}</li>
-              <li>Date: {this.props.date}</li>
-              <li>text: {this.props.date}</li>
-              <button onClick={this.upVote}>Upvotes: {this.props.upvotes} </button>
+          <ul key={this.props.comment.idea}>    
+              <li>author: {this.props.comment.author}</li>
+              <li>Date: {this.props.comment.date}</li>
+              <li>text: {this.props.comment.text}</li>
+              <button onClick={(e) => {
+                this.props.onUpvote(e, this.props.comment.id, this.props.comment.upvotes + 1)
+              }}>
+                Upvotes: {this.props.comment.upvotes}
+              </button>
           </ul>
       </div>
     )

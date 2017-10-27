@@ -3,7 +3,7 @@ import Comment from '../Comment/Comment';
 import Comments from '../Comments/Comments.js';
 import * as firebase from "firebase";
 
-import config from './firebaseConfig';
+import config from '../Comments/firebaseConfig';
 
 class CommentForm extends React.Component {
     constructor(props){
@@ -92,7 +92,7 @@ class CommentForm extends React.Component {
                     </button>
                 </form> 
 
-                {
+                {/* {
                     this.state.allInfo.map((i) => {
                         return <Comments
                              key={i.key}
@@ -104,7 +104,7 @@ class CommentForm extends React.Component {
                             db={this.app}
                           />
                       })
-                    }
+                    } */}
          </div>
      )
     
