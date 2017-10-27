@@ -66,8 +66,8 @@ class InputForm extends React.Component {
             })
 
         this.db.push( this.state )
-
 }
+
 
     render(props) { 
         return (
@@ -78,7 +78,7 @@ class InputForm extends React.Component {
                     type="text"
                     onChange={this.update}
                     />
-                    <input name="location" 
+                    {/* <input name="location" 
                     placeholder="Location(optional)" 
                     type="text"
                     onChange={this.update}
@@ -92,7 +92,7 @@ class InputForm extends React.Component {
                     placeholder="Budget(optional)" 
                     type="text"
                     onChange={this.update}
-                    />
+                    /> */}
                     <button type="submit">Submit Idea
                     </button>
                 </form> 
@@ -102,10 +102,7 @@ class InputForm extends React.Component {
                         return <Posts
                             key={i.key}
                             idea={i.idea}
-                            date={i.date}
-                            location={i.location}
-                            budget={i.budget}
-                            upvotes={i.upvotes}
+
                           />
                       })
                   } 
